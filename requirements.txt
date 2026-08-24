@@ -1,0 +1,14 @@
+fastapi
+httpx
+uvicorn
+requests
+motor
+psycopg2
+pandas
+plotly
+pytest
+python-multipart
+pyvis
+pymongo
+rdflib
+pydantic
