@@ -1,35 +1,39 @@
 # Dataspace Backend
 
-This set of APIs allows for communication between an Apache Fuseki triplestore, a timescaleDB timeseries database, a mongoDB objectstore for trials and KADI4MAT.
-The goal is for the end-user to use ontological concepts to retrieve specific data from a timeseries database without knowing the structure of the timescaleDB.
+The Dataspace Backend provides a unified API layer for communication between an Apache Fuseki triplestore, a TimescaleDB time-series database, a MongoDB object store for trial data, and KADI4MAT.
+
+Its primary objective is to enable end users to retrieve data from the time-series database using ontology-based concepts, without requiring knowledge of the underlying TimescaleDB schema or database structure.
 
 ## Installation
 
 ### Environment variables
 
-You must set environment variables according to the Fuseki, timescaleDB and mongoDB that you wish to connect to.
-Environment variables must be set in order for this API to work properly (see `.env.default`).
+Before starting the application, configure the required environment variables for the Apache Fuseki, TimescaleDB, and MongoDB instances you intend to use.
 
-These variables can be set by creating a file ".env" that will be read.
+These variables are required for the API to function correctly. Refer to .env.default for the complete list of supported configuration options.
+
+You can define the variables by creating a .env file in the project root directory.
 
 ### Docker
 
-Ensure the settings in `.env` are correctly set.
+Ensure that all required settings in the .env file have been configured correctly.
 
-Run this code snippet in the terminal to build and run :
+Build and start the application using:
 ```sh
 docker compose up --build -d
 ```
-The swagger openapi specification can be found at <http://localhost:8000/docs>
+Once the service is running, the OpenAPI/Swagger documentation is available at: <http://localhost:8000/docs>
 
-### timescaleDB
+### TimescaleDB
 
-In the docker-compose.yaml , we have a sample with its own timescaleDB which can be initialized using [init.sql](timescaledb/init.sql).
+The provided docker-compose.yaml includes an example TimescaleDB instance for development and testing purposes.
+
+This database can be initialized using the SQL script located at: [init.sql](timescaledb/init.sql).
 
 
 ### KADI
 
-To enable integration with KADI, you must provide a valid KADI Personal Access Token (PAT) during the Docker build.
+To enable integration with KADI4MAT, a valid KADI Personal Access Token (PAT) must be provided during the Docker image build process.
 
 Example:
 
